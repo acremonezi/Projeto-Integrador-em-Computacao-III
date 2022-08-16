@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "Projeto-Integrador-em-Computacao-III",
+		 	"path": "."
+		},
+		{
+			"name": "Hardware",
+			"path": "hardware"
+		}
+	],
+	"settings": {}
+}

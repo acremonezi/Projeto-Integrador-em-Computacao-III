@@ -104,7 +104,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
 
       # Configuration
-      - ./devops/grafana:/etc/grafana
+      # - ./devops/grafana:/etc/grafana
 
       # Data Storage
       - ./data/grafana:/var/lib/grafana

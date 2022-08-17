@@ -109,8 +109,7 @@ services:
 # -----------------------------------------------------------------
 # Telegraf
 
-
- telegraf:
+  telegraf:
     image: telegraf:latest
     container_name: "telegraf"
     restart: always
@@ -135,6 +134,8 @@ services:
       - DOCKER_INFLUXDB_INIT_BUCKET=bee
       - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=WCHiXnonzowflQRsO7QM
 
+    labels:
+      - "traefik.enable=false"
 
 # -----------------------------------------------------------------
 # Grafana

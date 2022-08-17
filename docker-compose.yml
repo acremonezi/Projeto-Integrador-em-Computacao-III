@@ -97,13 +97,13 @@ services:
     labels:
       - "traefik.enable=true"
 
-      - "traefik.http.routers.grafana.rule=Host(`influxdb.bee.espertamente.com.br`)"
-      - "traefik.http.routers.grafana.entrypoints=websecure"
+      - "traefik.http.routers.influxdb.rule=Host(`influxdb.bee.espertamente.com.br`)"
+      - "traefik.http.routers.influxdb.entrypoints=websecure"
 
-      - "traefik.http.services.grafana.loadbalancer.server.port=8086"
+      - "traefik.http.services.influxdb.loadbalancer.server.port=8086"
       
-      - "traefik.http.routers.grafana.service=grafana"
-      - "traefik.http.routers.grafana.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.influxdb.service=influxdb"
+      - "traefik.http.routers.influxdb.tls.certresolver=letsencrypt"
 
 # -----------------------------------------------------------------
 # Grafana

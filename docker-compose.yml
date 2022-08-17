@@ -117,8 +117,8 @@ services:
     networks:
       - backend
 
-    #ports:
-    #  - 8125:8125
+    ports:
+      - 8125:8125
     
     volumes:
       # Configuration

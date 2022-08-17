@@ -113,7 +113,7 @@ services:
       # - ./logs/grafana/:/var/log/grafana
       
     environment:
-      - GF_SECURITY_ADMIN_USER=alcides
+      - GF_SECURITY_ADMIN_USER=espertamente
       - GF_SECURITY_ADMIN_PASSWORD=MuitoObrigado!!!MuitoObrigado!!!MuitoObrigado!!!
       - GF_USERS_ALLOW_SIGN_UP=false
       # - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource

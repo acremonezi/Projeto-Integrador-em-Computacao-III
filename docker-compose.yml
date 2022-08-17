@@ -38,7 +38,101 @@ services:
 
 
 # -----------------------------------------------------------------
-# api.espertamente.com.br
+# Mosquitto
+# mqtt.bee.espertamente.com.br
+
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    restart: always
+    container_name: "mosquitto"
+
+    networks:
+      - backend
+
+    ports:
+      - 1883:1883
+
+    volumes:
+      # Configuration
+      - ./devops/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+      - ./devops/mosquitto/mosquitto.passwd:/mosquitto/config/mosquitto.passwd:ro
+
+      # Data Storage
+      - ./data/mosquitto/data:/mosquitto/data
+
+      # Log Storage
+      - ./data/mosquitto/log:/mosquitto/log
+
+
+# -----------------------------------------------------------------
+# InfluxDB
+
+  influxdb:
+    image: influxdb:latest
+    container_name: "influxdb"
+    restart: always
+
+    networks:
+      - backend
+
+    ports:
+      - 8086:8086
+
+    volumes:
+      # Data Storage 
+      - ./data/influxdb:/var/lib/influxdb
+
+
+# -----------------------------------------------------------------
+# Grafana
+# grafana.bee.espertamente.com.br
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    restart: unless-stopped
+
+    networks:
+      - frontend
+      - backend
+
+    depends_on:
+      - influxdb
+
+    volumes:
+      # Define Time
+      - /etc/localtime:/etc/localtime:ro
+
+      # Configuration
+      - ./devops/grafana:/etc/grafana
+
+      # Data Storage
+      - ./data/grafana:/var/lib/grafana
+
+      # Log Storage
+      # - ./logs/grafana/:/var/log/grafana
+      
+    environment:
+      - GF_SECURITY_ADMIN_USER=alcides
+      - GF_SECURITY_ADMIN_PASSWORD=MuitoObrigado!!!MuitoObrigado!!!MuitoObrigado!!!
+      - GF_USERS_ALLOW_SIGN_UP=false
+      # - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource
+
+    labels:
+      - "traefik.enable=true"
+
+      - "traefik.http.routers.grafana.rule=Host(`grafana.bee.espertamente.com.br`)"
+      - "traefik.http.routers.grafana.entrypoints=websecure"
+
+      - "traefik.http.services.grafana.loadbalancer.server.port=3000"
+      
+      - "traefik.http.routers.grafana.service=grafana"
+      - "traefik.http.routers.grafana.tls.certresolver=letsencrypt"
+
+
+# -----------------------------------------------------------------
+# NodeRED
+# nodered.bee.espertamente.com.br
 
   nodered:
     image: nodered/node-red:latest
@@ -77,74 +171,3 @@ services:
       
       - "traefik.http.routers.nodered.service=nodered"
       - "traefik.http.routers.nodered.tls.certresolver=letsencrypt"
-
-
-# -----------------------------------------------------------------
-# Grafana
-# grafana.bee.espertamente.com.br
-
-  grafana:
-    image: grafana/grafana:latest
-    restart: unless-stopped
-    container_name: grafana
-
-    networks:
-      - frontend
-      - backend
-
-    volumes:
-      # Define Time
-      - /etc/localtime:/etc/localtime:ro
-
-      # Configuration
-      - ./devops/grafana:/etc/grafana
-
-      # Data Storage
-      - ./devops/grafana:/var/lib/grafana
-
-      # Log Storage
-      # - ./logs/grafana/:/var/log/grafana
-      
-    environment:
-      - GF_SECURITY_ADMIN_USER=alcides
-      - GF_SECURITY_ADMIN_PASSWORD=MuitoObrigado!!!MuitoObrigado!!!MuitoObrigado!!!
-      - GF_USERS_ALLOW_SIGN_UP=false
-      # - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource
-
-    labels:
-      - "traefik.enable=true"
-
-      - "traefik.http.routers.grafana.rule=Host(`grafana.bee.espertamente.com.br`)"
-      - "traefik.http.routers.grafana.entrypoints=websecure"
-
-      - "traefik.http.services.grafana.loadbalancer.server.port=3000"
-      
-      - "traefik.http.routers.grafana.service=grafana"
-      - "traefik.http.routers.grafana.tls.certresolver=letsencrypt"
-
-
-# -----------------------------------------------------------------
-# Mosquitto
-# mqtt.bee.espertamente.com.br
-
-  mosquitto:
-    image: eclipse-mosquitto:latest
-    restart: always
-    container_name: "mosquitto"
-
-    networks:
-      - backend
-
-    ports:
-      - 1883:1883
-
-    volumes:
-      # Configuration
-      - ./devops/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
-      - ./devops/mosquitto/mosquitto.passwd:/mosquitto/config/mosquitto.passwd:ro
-
-      # Data Storage
-      - ./data/mosquitto/data:/mosquitto/data
-
-      # Log Storage
-      - ./data/mosquitto/log:/mosquitto/log

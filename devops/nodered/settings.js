@@ -84,7 +84,7 @@ module.exports = {
     // By default, the Node-RED UI is available at http://localhost:1880/
     // The following property can be used to specify a different root path.
     // If set to false, this is disabled.
-    httpAdminRoot: '/admin',
+    // httpAdminRoot: '/admin',
 
     // Some nodes, such as HTTP In, can be used to listen for incoming http requests.
     // By default, these are served relative to '/'. The following property
@@ -100,7 +100,7 @@ module.exports = {
     // following property can be used to identify a directory of static content
     // that should be served at http://localhost:1880/.
     //httpStatic: '/home/nol/node-red-static/',
-    httpStatic: '/data/public_html/',
+    //httpStatic: '/data/public_html/',
 
     // The maximum size of HTTP request that will be accepted by the runtime api.
     // Default: 5mb

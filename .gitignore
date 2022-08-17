@@ -1,3 +1,4 @@
 # Ignore everything in the "data" directory, except: "traefik"
 # ----------------------------------
 data/*
+devops/influxdb/*

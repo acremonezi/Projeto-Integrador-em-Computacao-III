@@ -77,8 +77,8 @@ services:
       - frontend
       - backend
 
-    ports:
-      - 8086:8086
+    #ports:
+    #  - 8086:8086
     
     environment: 
       - DOCKER_INFLUXDB_INIT_MODE=setup

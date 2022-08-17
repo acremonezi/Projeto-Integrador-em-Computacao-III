@@ -105,6 +105,37 @@ services:
       - "traefik.http.routers.influxdb.service=influxdb"
       - "traefik.http.routers.influxdb.tls.certresolver=letsencrypt"
 
+
+# -----------------------------------------------------------------
+# Telegraf
+
+
+ telegraf:
+    image: telegraf:latest
+    container_name: "telegraf"
+    restart: always
+
+    networks:
+      - backend
+
+    #ports:
+    #  - 8125:8125
+    
+    volumes:
+      # Configuration
+      #- ./devops/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+
+    depends_on:
+      - influxdb
+    links:
+      - influxdb
+
+    environment: 
+      - DOCKER_INFLUXDB_INIT_ORG=espertamente
+      - DOCKER_INFLUXDB_INIT_BUCKET=bee
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=WCHiXnonzowflQRsO7QM
+
+
 # -----------------------------------------------------------------
 # Grafana
 # grafana.bee.espertamente.com.br

@@ -66,6 +66,7 @@ services:
 
 # -----------------------------------------------------------------
 # InfluxDB
+# influxdb.bee.espertamente.com.br
 
   influxdb:
     image: influxdb:latest
@@ -73,15 +74,37 @@ services:
     restart: always
 
     networks:
+      - frontend
       - backend
 
     ports:
       - 8086:8086
+    
+    environment: 
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=espertamente
+      - DOCKER_INFLUXDB_INIT_PASSWORD=Iy03yxMzFrahYBv2TBIn
+      - DOCKER_INFLUXDB_INIT_ORG=espertamente
+      - DOCKER_INFLUXDB_INIT_BUCKET=bee
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=WCHiXnonzowflQRsO7QM
 
     volumes:
-      # Data Storage 
-      - ./data/influxdb:/var/lib/influxdb
+      # Configuration
+      - ./devops/influxdb:/etc/influxdb2
 
+      # Data Storage 
+      - ./data/influxdb:/var/lib/influxdb2
+
+    labels:
+      - "traefik.enable=true"
+
+      - "traefik.http.routers.grafana.rule=Host(`influxdb.bee.espertamente.com.br`)"
+      - "traefik.http.routers.grafana.entrypoints=websecure"
+
+      - "traefik.http.services.grafana.loadbalancer.server.port=8086"
+      
+      - "traefik.http.routers.grafana.service=grafana"
+      - "traefik.http.routers.grafana.tls.certresolver=letsencrypt"
 
 # -----------------------------------------------------------------
 # Grafana

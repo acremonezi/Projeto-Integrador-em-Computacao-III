@@ -120,7 +120,7 @@ services:
     #ports:
     #  - 8125:8125
     
-    volumes:
+    #volumes:
       # Configuration
       #- ./devops/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
 

@@ -95,6 +95,8 @@ services:
     networks:
       - frontend
       - backend
+
+    user: root:root
     
     ports:
       - 3000:3000

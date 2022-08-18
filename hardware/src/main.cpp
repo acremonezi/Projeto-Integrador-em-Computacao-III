@@ -1,17 +1,24 @@
-#include <Arduino.h>
-#include "pinSettings.h"  // Pin Settings Setup
+#include <Arduino.h>              // Main Arduino Library
+#include "pinSettings.h"          // Pin Settings Setup
 
-#include "blink.h"        // Hello World Alcides!!!
+#include "sensors/DHTxx.h"        // DHTxx Sensor Code
+#include "wifi/wifi.h"            // Wifi Connection
+#include "mqtt/mqtt.h"            // MQTT Code
 
 void setup() {
 
   Serial.begin(9600);     // Start Serial Communication 
   pinSettings();          // Pin Settings Setup
+  DHTxxSetup();           // DHTxx Sensor Setup
+  wifiConnect();          // Wifi Connection
+  mqttConnect();            // MQTT Setup
 
 }
 
 void loop() {
-
-  blink();                // Hello World Alcides!!!
+ 
+  DHTxxRead();            // DHTxx Sensor Readings
+  DHTxxSerialPrint();     // DHTxx Sensor Serial Print
+  mqttPublish();             // MQTT Publish
 
 }

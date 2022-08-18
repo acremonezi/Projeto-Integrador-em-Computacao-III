@@ -9,5 +9,10 @@
 			"path": "hardware"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"files.associations": {
+			"*.ejs": "html",
+			"random": "cpp"
+		}
+	}
 }

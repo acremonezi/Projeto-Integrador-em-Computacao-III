@@ -1,13 +1,12 @@
 #include <Arduino.h>
-#include "pinMap.h"       // Pin Map Setup
-#include "pinSetup.h"     // Pin I/O Mode Setup
+#include "pinSettings.h"  // Pin Settings Setup
 
 #include "blink.h"        // Hello World Alcides!!!
 
 void setup() {
 
   Serial.begin(9600);     // Start Serial Communication 
-  pinSetup();             // Pin I/O Mode Setup
+  pinSettings();          // Pin Settings Setup
 
 }
 

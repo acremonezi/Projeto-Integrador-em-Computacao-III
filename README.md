@@ -69,12 +69,12 @@ Estrutura de microserviços com (**arquitetura em n-níveis**) utilizando um con
 <br>
 
 ## Links:
-1. Gerenciamento do Projeto: [https://github.com/acremonezi/Projeto-Integrador-em-Computacao-II/projects/1](https://github.com/acremonezi/Projeto-Integrador-em-Computacao-III/projects)
+1. Gerenciamento do Projeto: [https://github.com/acremonezi/Projeto-Integrador-em-Computacao-III/projects/1](https://github.com/acremonezi/Projeto-Integrador-em-Computacao-III/projects)
 2. Documentação: 
 3. Protótipo: 
 4. Data Models: 
 5. Arquitetura: 
 6. Repositório Git: [https://github.com/acremonezi/Projeto-Integrador-em-Computacao-III/](https://github.com/acremonezi/Projeto-Integrador-em-Computacao-III)
-7. Versões do Software: [https://github.com/acremonezi/Projeto-Integrador-em-Computacao-II/releases](https://github.com/acremonezi/Projeto-Integrador-em-Computacao-III/releases)
+7. Versões do Software: [https://github.com/acremonezi/Projeto-Integrador-em-Computacao-III/releases](https://github.com/acremonezi/Projeto-Integrador-em-Computacao-III/releases)
 8. Software: 
 9. Vídeo:

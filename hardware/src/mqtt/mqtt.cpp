@@ -18,6 +18,7 @@ const char *mqtt_broker = "mqtt.bee.espertamente.com.br";
 
 // ----------------------------------------------------------------
 // I am Blocked!!! Please Help!!!
+// I am Blocked!!! Please Help!!!
 // ----------------------------------------------------------------
 // Please, how can I change this string "sensors/DHTxx/" bellow
 // for the variable {{{device_topic}}} declared above?

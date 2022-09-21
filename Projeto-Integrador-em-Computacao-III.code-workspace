@@ -12,7 +12,8 @@
 	"settings": {
 		"files.associations": {
 			"*.ejs": "html",
-			"random": "cpp"
+			"random": "cpp",
+			"string_view": "cpp"
 		}
 	}
 }

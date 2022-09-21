@@ -3,6 +3,9 @@
 
 #include "wifi.h"            // Wifi Connection
 
+String clientIP = "";
+String clientMAC = "";
+
 // Wifi network credentials
 const char* ssid     = "Quantum_IoT";
 const char* password = "Y7Q9vD8V10b!!!";
@@ -33,4 +36,8 @@ void wifiConnect() {
   Serial.println("WiFi connected");
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
+
+  // Store Wifi Network IP Address and MAC Address
+  clientIP = WiFi.localIP().toString().c_str();
+  clientMAC = String(WiFi.macAddress());
 }

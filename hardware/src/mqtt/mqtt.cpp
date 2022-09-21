@@ -22,7 +22,12 @@ const char *mqtt_broker = "mqtt.bee.espertamente.com.br";
 // ----------------------------------------------------------------
 // Please, how can I change this string "sensors/DHTxx/" bellow
 // for the variable {{{device_topic}}} declared above?
-const char *topic = "sensors/DHTxx";
+const char *topic = "sensors/DHTxx";              // Worked!
+//
+//Tests Done:
+//const char *topic = &device_topic;                   // Did not even compile the code!
+//const char *topic = &device_topic.c_str();           // Did not even compile the code!
+//const char *topic = device_topic.c_str();            // Did not Work!
 // ----------------------------------------------------------------
 
 const char *mqtt_username = "espertamente";

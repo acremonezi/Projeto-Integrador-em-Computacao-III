@@ -1,19 +1,26 @@
-
-
-
 #include "wifi.h"            // Wifi Connection
 
-String clientIP = "";
-String clientMAC = "";
+String espClientIP = "";
+String espClientMAC = "";
+String espClientMACsimple = "";
+String espClientHostname = "";
 
 // Wifi network credentials
-const char* ssid     = "Quantum_IoT";
-const char* password = "Y7Q9vD8V10b!!!";
+const char* ssid     = WIFI_SSID;
+const char* password = WIFI_PASSWD;
 
+
+// Create an WiFiClient class to connect to the MQTT server.
 WiFiClient espClient;
+
 
 void wifiConnect() {
   Serial.begin(9600);
+  
+  // Extract Wifi MAC Address
+  espClientMAC = String(WiFi.macAddress()).c_str();
+  espClientMACsimple = espClientMAC.c_str();
+  espClientMACsimple.replace(":", "");
 
   // We start by connecting to a WiFi network
   Serial.println();
@@ -32,12 +39,17 @@ void wifiConnect() {
     Serial.print(".");
   }
 
+  // Set Device Hostname
+  WiFi.hostname(espClientMACsimple);
+
+  // Extract Wifi IP Address and Hostname
+  espClientIP = WiFi.localIP().toString().c_str();
+  espClientHostname = WiFi.hostname();
+
+  // Print Wifi Connection Info
   Serial.println("");
   Serial.println("WiFi connected");
-  Serial.println("IP address: ");
-  Serial.println(WiFi.localIP());
+  Serial.println("IP address: " + espClientIP);
+  Serial.println("Hostname: " + espClientHostname);
 
-  // Store Wifi Network IP Address and MAC Address
-  clientIP = WiFi.localIP().toString().c_str();
-  clientMAC = String(WiFi.macAddress());
 }

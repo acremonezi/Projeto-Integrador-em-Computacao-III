@@ -6,6 +6,7 @@
 #include "sensors/DHTxx.h"        // DHTxx Sensor Code
 #include "wifi/wifi.h"            // Wifi Connection
 #include "mqtt/mqtt.h"            // MQTT Code
+#include "display/display.h"      //Display Code
 
 
 void setup() {
@@ -15,6 +16,7 @@ void setup() {
   DHTxxSetup();                   // DHTxx Sensor Setup
   wifiConnect();                  // Wifi Connection
   mqttConnect();                  // MQTT Setup
+  startDisplay();                 // Start and configure display
 
 }
 
@@ -23,5 +25,6 @@ void loop() {
   DHTxxRead();                    // DHTxx Sensor Readings
   DHTxxSerialPrint();             // DHTxx Sensor Serial Print
   mqttPublish();                  // MQTT Publish
-
+  refreshDisplay();               // Show MAC, temperature and humidity in display
+  
 }

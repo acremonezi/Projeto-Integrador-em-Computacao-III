@@ -1,19 +1,23 @@
 {
-	"folders": [
-		{
-			"name": "Projeto-Integrador-em-Computacao-III",
-		 	"path": "."
-		},
-		{
-			"name": "Hardware",
-			"path": "hardware"
-		}
-	],
-	"settings": {
-		"files.associations": {
-			"*.ejs": "html",
-			"random": "cpp",
-			"string_view": "cpp"
-		}
-	}
+  "folders": [
+    {
+      "name": "Projeto-Integrador-em-Computacao-III",
+      "path": "."
+    },
+    {
+      "name": "Hardware",
+      "path": "hardware"
+    },
+    {
+      "name": "Software",
+      "path": "software"
+    }
+  ],
+  "settings": {
+    "files.associations": {
+      "*.ejs": "html",
+      "random": "cpp",
+      "string_view": "cpp"
+    }
+  }
 }

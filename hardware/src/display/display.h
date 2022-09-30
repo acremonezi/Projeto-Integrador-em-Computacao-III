@@ -1,5 +1,6 @@
 #include <Arduino.h>              // Main Arduino Library
 #include "pinSettings.h"          // Pin Settings Setup
+#include "wifi/wifi.h"            // Wifi Connection
 
 // Features
 #include "sensors/DHTxx.h"        // DHTxx Sensor Code
@@ -33,15 +34,15 @@ void refreshDisplay()
 {
   // display lines
   delay(2000);
-  display.clear(); // only first time in loop
+  display.clear(); 
   display.setTextAlignment(TEXT_ALIGN_LEFT);
 
   // MACADRESS
   display.setFont(ArialMT_Plain_10);
   textMACComplete += espClientMAC;
-    if (textMACComplete == "")
+    if ((textMACComplete == "") || (WiFi.status() != WL_CONNECTED))
   {
-    textMACComplete += "Not Conected";
+    textMACComplete = "Not Conected";
   }
   display.drawString(10, 0, textMACComplete);
   Serial.print("MACADRESS: ");
@@ -51,9 +52,6 @@ void refreshDisplay()
 
   // Temperature
   display.setFont(ArialMT_Plain_16);
-  
-  
-  
   textTemperatureComplete += DHTxxTemperature;
   textTemperatureComplete += " ºC";
   display.drawString(20, 20, textTemperatureComplete);

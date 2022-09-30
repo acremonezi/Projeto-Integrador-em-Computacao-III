@@ -15,8 +15,12 @@ WiFiClient espClient;
 
 
 void wifiConnect() {
-  Serial.begin(9600);
   
+  if (WiFi.status() != WL_CONNECTED)
+  {
+    espClientMAC = String("");
+  }
+
   // Extract Wifi MAC Address
   espClientMAC = String(WiFi.macAddress()).c_str();
   espClientMACsimple = espClientMAC.c_str();
@@ -32,13 +36,18 @@ void wifiConnect() {
      would try to act as both a client and an access-point and could cause
      network-issues with your other WiFi-devices on your WiFi-network. */
   WiFi.mode(WIFI_STA);
-  WiFi.begin(ssid, password);
+  if (WiFi.status() != WL_CONNECTED)
+  {
+    WiFi.begin(ssid, password);
+  }
+  
 
+/*
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.print(".");
   }
-
+*/
   // Set Device Hostname
   WiFi.hostname(espClientMACsimple);
 
@@ -52,4 +61,12 @@ void wifiConnect() {
   Serial.println("IP address: " + espClientIP);
   Serial.println("Hostname: " + espClientHostname);
 
+}
+
+void wifiReconnect()
+{
+  if (WiFi.status() != WL_CONNECTED)
+  {
+    WiFi.reconnect();
+  }
 }

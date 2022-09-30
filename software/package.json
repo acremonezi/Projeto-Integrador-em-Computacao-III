@@ -1,0 +1,19 @@
+{
+  "name": "beesmart",
+  "version": "1.0.0",
+  "description": "Bee Smart IoT System to Realtime Monitor Room Temperature and Humidity",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acremonezi/Projeto-Integrador-em-Computacao-III.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/acremonezi/Projeto-Integrador-em-Computacao-III/issues"
+  },
+  "homepage": "https://github.com/acremonezi/Projeto-Integrador-em-Computacao-III#readme"
+}

@@ -3,10 +3,8 @@
     #define wifi_h
         #include <Arduino.h>              // Main Arduino Library
         #include <ESP8266WiFi.h>
+        #include "secrets.h"
         
-        // Wifi Connectivity Settings
-        #define WIFI_SSID "Quantum_IoT"
-        #define WIFI_PASSWD "Y7Q9vD8V10b!!!"
 
         extern WiFiClient espClient;
 
@@ -16,5 +14,6 @@
         extern String espClientHostname;
 
         void wifiConnect();
+        void wifiReconnect();
 
 #endif

@@ -26,5 +26,5 @@ void loop() {
   DHTxxSerialPrint();             // DHTxx Sensor Serial Print
   mqttPublish();                  // MQTT Publish
   refreshDisplay();               // Show MAC, temperature and humidity in display
-  
+  wifiReconnect();                // Wifi Reconnect
 }

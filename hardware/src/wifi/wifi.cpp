@@ -36,18 +36,10 @@ void wifiConnect() {
      would try to act as both a client and an access-point and could cause
      network-issues with your other WiFi-devices on your WiFi-network. */
   WiFi.mode(WIFI_STA);
-  if (WiFi.status() != WL_CONNECTED)
-  {
-    WiFi.begin(ssid, password);
-  }
   
-
-/*
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.print(".");
-  }
-*/
+  // Connect in wifi
+  WiFi.begin(ssid, password);
+  
   // Set Device Hostname
   WiFi.hostname(espClientMACsimple);
 

@@ -55,6 +55,7 @@ void wifiConnect() {
 
 }
 
+// Reconnect function
 void wifiReconnect()
 {
   if (WiFi.status() != WL_CONNECTED)

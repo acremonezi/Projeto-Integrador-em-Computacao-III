@@ -34,7 +34,7 @@ void refreshDisplay()
 {
   // display lines
   delay(2000);
-  display.clear(); 
+  display.clear();
   display.setTextAlignment(TEXT_ALIGN_LEFT);
 
   // MACADRESS
@@ -60,14 +60,10 @@ void refreshDisplay()
 
   // Humidity
   display.setFont(ArialMT_Plain_16);
-  
   textHumidityComplete += DHTxxHumidity;
   textHumidityComplete += " %";
   display.drawString(70, 40, textHumidityComplete);
   display.display();
   textHumidityComplete = "";
-
-  Serial.println(textTemperatureComplete);
-  Serial.println(textHumidityComplete);
 
 }

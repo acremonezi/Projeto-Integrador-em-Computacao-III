@@ -9,9 +9,6 @@ devops/influxdb/*
 .vscode/launch.json
 .vscode/ipch
 
-# secrets for wifi
-secrets.h
-src/wifi/secrets.h
 
 # Created by https://www.toptal.com/developers/gitignore/api/c,c++,visualstudiocode,platformio,git
 # Edit at https://www.toptal.com/developers/gitignore?templates=c,c++,visualstudiocode,platformio,git

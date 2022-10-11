@@ -27,6 +27,7 @@ void setup() {
 }
 
 void loop() {
+
   if (timeStatus == 1)
   {
     timeStart = time(0);
@@ -34,8 +35,11 @@ void loop() {
     timeStatus = 0;               // cant time update
   }
 
+  timeNow = time(0);              // time elapsed update
+
   if ((timeNow - timeStart) >= timeControl)
   {
+    Serial.println("Read Sensor");
     DHTxxRead();                    // DHTxx Sensor Readings
     DHTxxSerialPrint();             // DHTxx Sensor Serial Print
     mqttPublish();                  // MQTT Publish
@@ -46,5 +50,5 @@ void loop() {
   
   wifiReconnect();                // Wifi Reconnect
 
-  
+
 }

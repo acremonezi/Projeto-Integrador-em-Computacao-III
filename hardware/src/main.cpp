@@ -17,7 +17,7 @@ int timeControl = 5;              // Time elapsed to new read
 
 void setup() {
 
-  Serial.begin(9600);             // Start Serial Communication 
+  Serial.begin(115200);           // Start Serial Communication 
   pinSettings();                  // Pin Settings Setup
   DHTxxSetup();                   // DHTxx Sensor Setup
   wifiConnect();                  // Wifi Connection

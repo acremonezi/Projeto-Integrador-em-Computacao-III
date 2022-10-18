@@ -42,7 +42,21 @@ void loop() {
     Serial.println("Read Sensor");
     DHTxxRead();                    // DHTxx Sensor Readings
     DHTxxSerialPrint();             // DHTxx Sensor Serial Print
-    mqttPublish();                  // MQTT Publish
+    
+
+    // Verify internet connection to publish the reads
+    if (WiFi.status() == WL_CONNECTED)
+    {
+      mqttPublish();                  // MQTT Publish
+    }
+    else
+    {
+      wifiReconnect();                // Wifi Reconnect
+      if (WiFi.status() == WL_CONNECTED)
+      {
+        mqttPublish();                  // MQTT Publish
+      }
+    }
     refreshDisplay();               // Show MAC, temperature and humidity in display
     timeStatus = 1;                 // can time update
   }

@@ -24,6 +24,8 @@ void mqttConnect() {
   client.setServer(mqtt_broker, mqtt_port);
   //client.setCallback(callback);
 
+  
+
   while (!client.connected()) {
 
       Serial.printf("The client %s is conneting to the MQTT Broker Server\n", espClientMACsimple.c_str());
@@ -35,7 +37,7 @@ void mqttConnect() {
       } else {
           Serial.print("Failed with state: ");
           Serial.print(client.state());
-          delay(2000);
+          // delay(2000);
       }
   }
 }
@@ -89,7 +91,7 @@ void mqttPublish() {
 
   char outputJson[256];
   serializeJson(doc, outputJson);
-
+  
   //Publish the data to the topic
   client.publish(topic, outputJson);
   client.loop();

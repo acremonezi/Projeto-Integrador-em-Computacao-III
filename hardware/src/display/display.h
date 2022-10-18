@@ -33,7 +33,6 @@ void startDisplay()
 void refreshDisplay()
 {
   // display lines
-  delay(2000);
   display.clear();
   display.setTextAlignment(TEXT_ALIGN_LEFT);
 

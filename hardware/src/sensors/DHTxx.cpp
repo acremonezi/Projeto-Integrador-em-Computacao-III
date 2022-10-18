@@ -23,7 +23,7 @@ void DHTxxSetup() {
 // DHTxx Sensor Readings
 void DHTxxRead() {
   
-  delay(1000); // Wait a few seconds between measurements.
+  // delay(1000); // Wait a few seconds between measurements.
   
   DHTxxHumidity = dht.readHumidity();
   DHTxxTemperature = dht.readTemperature();

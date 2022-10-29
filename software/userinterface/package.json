@@ -1,0 +1,31 @@
+{
+  "name": "userinterface",
+  "version": "1.0.0",
+  "description": "a software to read an influxdb database and set configurations for iot devices",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acremonezi/Projeto-Integrador-em-Computacao-III.git"
+  },
+  "keywords": [
+    "iot",
+    "influxdb",
+    "esp32",
+    "esp8266",
+    "univesp"
+  ],
+  "author": "UNIVESP-DRPCAMPINAS-PJI310-SALA-001GRUPO-008",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/acremonezi/Projeto-Integrador-em-Computacao-III/issues"
+  },
+  "homepage": "https://github.com/acremonezi/Projeto-Integrador-em-Computacao-III#readme",
+  "dependencies": {
+    "chart.js": "^3.9.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2"
+  }
+}

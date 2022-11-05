@@ -20,7 +20,7 @@ const client = new InfluxDB({url: url, token: token})
 const Sequelize = require('sequelize')
 const sequelize = new Sequelize({
     dialect: 'sqlite',
-    storage: './config.sqlite'
+    storage: './database/config.sqlite'
 })
 
 // Exports

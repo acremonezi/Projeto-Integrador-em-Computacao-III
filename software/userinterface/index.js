@@ -1,3 +1,17 @@
+(async () => {
+    const database = require('./database/database');
+    const Hosts = require('./database/Hosts');
+ 
+    try {
+        const hosts = await database.sequelize.sync();
+        console.log(hosts);
+        console.log('ok');
+    } catch (error) {
+        console.log(error);
+        console.log('erro');
+    }
+})();
+
 const express = require('express');
 const app = express();
 const client = require('./database/database');

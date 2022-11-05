@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const client = require('./database/database');
 
 // use ejs how view engine
 app.set('view engine', 'ejs');

@@ -1,12 +1,8 @@
 {
 	"folders": [
 		{
-			"name": "Projeto-Integrador-em-Computacao-III",
-		 	"path": "."
-		},
-		{
-			"name": "Hardware",
-			"path": "hardware"
+			"name": "Teste",
+			"path": "../../PlatformIO/Projects/Teste"
 		}
 	],
 	"settings": {

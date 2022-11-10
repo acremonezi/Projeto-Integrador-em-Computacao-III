@@ -37,6 +37,9 @@ void loop() {
 
   timeNow = time(0);              // time elapsed update
 
+
+
+
   if ((timeNow - timeStart) >= timeControl)
   {
     Serial.println("Read Sensor");
@@ -48,6 +51,7 @@ void loop() {
     if (WiFi.status() == WL_CONNECTED)
     {
       mqttPublish();                  // MQTT Publish
+      
     }
     else
     {
@@ -64,5 +68,24 @@ void loop() {
   
   wifiReconnect();                // Wifi Reconnect
 
+  //LED indicator
+  if (WiFi.status() == WL_CONNECTED){
+    digitalWrite(LEDCON, HIGH);
+    digitalWrite(LEDDIS, LOW);
+  }
+  
+  if (digitalRead(LEDCON == HIGH)){
+    digitalWrite(LEDDIS, LOW);
+  }
+  else{
+    digitalWrite(LEDDIS, HIGH);
+  }
+  
 
+//LED indicator
+  if (WiFi.status() == WL_CONNECTED){
+    digitalWrite(LEDCON, HIGH);
+    digitalWrite(LEDDIS, LOW);
+  }
+  
 }

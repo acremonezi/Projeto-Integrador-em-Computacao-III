@@ -1,7 +1,7 @@
 (async () => {
     const database = require('./database/database');
     const Hosts = require('./database/Hosts');
- 
+
     try {
         const hosts = await database.sequelize.sync();
         console.log(hosts);
@@ -15,6 +15,7 @@
 const express = require('express');
 const app = express();
 const client = require('./database/database');
+const queries = require('./database/queries');
 
 // use ejs how view engine
 app.set('view engine', 'ejs');
@@ -25,8 +26,14 @@ app.use(express.static('public'));
 
 // Routes
 app.get('/', (req, res) => {
-    res.render('index');
+    
+
+    res.render('index')
+    
+
+    
 });
+
 
 
 // Server

@@ -16,6 +16,7 @@ const express = require('express');
 const app = express();
 const client = require('./database/database');
 const queries = require('./database/queries');
+const Hosts = require('./database/Hosts');
 
 // use ejs how view engine
 app.set('view engine', 'ejs');
@@ -26,12 +27,11 @@ app.use(express.static('public'));
 
 // Routes
 app.get('/', (req, res) => {
-    
-
-    res.render('index')
-    
-
-    
+    queries.allHosts((myHosts) => {
+        res.render('index', {
+            'myHosts': myHosts
+        });
+    });
 });
 
 

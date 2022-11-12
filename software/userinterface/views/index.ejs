@@ -1,15 +1,39 @@
 <%- include ('./partials/header') %>
 
-<%- include ('./partials/navbar') %>
+    <%- include ('./partials/navbar') %>
 
-<div class="container">
+        <div class="container">
 
-<hr>
-<h1>Lorem Ipsum</h1>
-<hr>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pretium velit, id dapibus turpis. Curabitur erat ante, convallis vel purus in, tincidunt feugiat odio. Maecenas pretium quis lorem sed congue. In imperdiet, elit ac bibendum luctus, massa diam euismod ante, vel varius felis lectus sit amet lorem. Mauris scelerisque, mi ac feugiat rutrum, lectus est bibendum mi, et volutpat mi tortor pulvinar ante. In hac habitasse platea dictumst. Praesent molestie tortor id quam pulvinar pretium quis et ipsum. Phasellus convallis velit pharetra mauris fermentum lacinia. Maecenas at facilisis lorem, et fermentum diam. Suspendisse consectetur felis quis sapien scelerisque, dapibus vestibulum dui congue.</p>
-<hr>
-</div>
+            <div class="container">
+                <hr>
 
 
-<%- include ('./partials/footer') %>
+                <h1>Hosts</h1>
+                
+                <a href="#" class="btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-tags" viewBox="0 0 16 16">
+                        <path
+                            d="M3 2v4.586l7 7L14.586 9l-7-7H3zM2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586V2z" />
+                        <path
+                            d="M5.5 5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM1 7.086a1 1 0 0 0 .293.707L8.75 15.25l-.043.043a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 0 7.586V3a1 1 0 0 1 1-1v5.086z" />
+                    </svg>
+                    Configurar
+                </a>
+                <hr>
+                <% myHosts.forEach(host=> { %>
+                    <br>
+                    <div class="card">
+                        <div class="card-body">
+                            <h3>
+                                <%= host %>
+                            </h3>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#"><button class="btn btn-primary">Alterar</button></a>
+                        </div>
+                    </div>
+                    <% }) %>
+            </div>
+
+            <%- include ('./partials/footer') %>

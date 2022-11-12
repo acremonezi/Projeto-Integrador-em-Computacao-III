@@ -1,44 +1,40 @@
 const client = require('./database');
+const Hosts = require('./Hosts');
+
 
 
 const query = `from(bucket: "${client.bucket}") 
                 |> range(start: -365d)
                 |> distinct(column: "host")`
 
-function allhosts() {
+function allHosts(callback) {
 
     // This set avoids duplicate hosts
-    const mySet = new Set()
-    var myhost;
+    const myHosts = new Set()
 
     client.queryApi.queryRows(query, {
         next(row, tableMeta) {
             const o = tableMeta.toObject(row)
-            // console.log(`${o.host}`)
-
-            // add host in set
-            myhost = o.host
-            mySet.add(myhost)
+            myHosts.add(o.host)
         },
         error(error) {
             console.error(error)
             console.log('Finished ERROR')
         },
         complete() {
-            // console.log(mySet.size)
-            // console.log('Finished SUCCESS')
-            return mySet;
-
+            myHosts.forEach((value) => {
+                Hosts.findOrCreate({
+                    where: {host: value},
+                }).then(([hostTemp, created]) => {
+                    console.log(created);
+                });
+            });
+            callback(myHosts);
         },
-        
-
     })
-
-
-
 };
 
 
 module.exports = {
-    allhosts
+    allHosts
 };

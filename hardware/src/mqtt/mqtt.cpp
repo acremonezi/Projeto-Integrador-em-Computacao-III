@@ -37,6 +37,7 @@ void mqttConnect() {
       } else {
           Serial.print("Failed with state: ");
           Serial.print(client.state());
+          digitalWrite(LEDDIS, HIGH);
           // delay(2000);
       }
   }

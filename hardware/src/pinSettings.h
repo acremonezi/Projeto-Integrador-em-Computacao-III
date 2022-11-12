@@ -9,6 +9,8 @@
     #define DHTPIN    D3    // Pin for DHT Sensor
     #define SDLPIN    D5    // Pin for display
     #define SDAPIN    D6    // Pin for display
+    #define LEDCON    D7    // WiFi connected LED
+    #define LEDDIS    D8    // WiFi disconnected LED
 
 
 

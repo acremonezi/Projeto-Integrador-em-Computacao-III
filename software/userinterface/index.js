@@ -34,14 +34,14 @@ app.use(bodyParser.json());
 
 // main page
 app.get('/', (req, res) => {
-    queries.allHosts((myHosts) => {
+    // queries.allHosts update the list of hosts
+    queries.allHosts(() => {
+        // find all hosts in database and put ir order to view in index
         Hosts.findAll({raw: true, order: [
-            ['host', 'ASC']
+            ['alias', 'ASC']
         ]}).then(myHostsDB => {
             res.render('index', {'myHosts': myHostsDB});
         });
-        
-        
     });
 });
 

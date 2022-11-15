@@ -1,4 +1,5 @@
 #include "wifi.h"            // Wifi Connection
+#include "pinSettings.h"
 
 String espClientIP = "";
 String espClientMAC = "";
@@ -63,3 +64,5 @@ void wifiReconnect()
     WiFi.reconnect();
   }
 }
+
+

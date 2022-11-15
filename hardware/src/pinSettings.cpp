@@ -7,5 +7,6 @@ void pinSettings() {
     // Define the Digital Outputs
     // ----------------------------------------------
     pinMode(LED_BUILTIN, OUTPUT);
-
+    pinMode(LEDCON, OUTPUT);
+    pinMode(LEDDIS, OUTPUT);
 }

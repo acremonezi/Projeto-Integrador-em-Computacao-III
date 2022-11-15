@@ -1,43 +1,270 @@
 <%- include ('./partials/header') %>
 
-    <%- include ('./partials/navbar') %>
+  <%- include ('./partials/navbar') %>
 
-        <div class="container">
+    <!-- offcanvas menu-->
+    <div class=" offcanvas offcanvas-start  bg-dark text-white" data-bs-scroll="true"  data-bs-backdrop="false"   tabindex="-1" id="offcanvasExample"
+      aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-body p-0">
+        <nav class="navbar-dark">
+          <ul class="navbar-nav text ">
+            <li>
+              <div class="text-muted small fw-bold text-uppercase px-3">
+                DISPOSITIVOS
+              </div>
+            </li>
+            <li>
+              <div class="form-check text-muted dispositivo">
+                <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label ms-1" for="flexCheckDefault">
+                  Nome_Dispositivo
+                </label>
+              </div>
+            </li>
+            <li>
+              <div class="form-check text-muted dispositivo">
+                <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label ms-1" for="flexCheckDefault">
+                  Nome_Dispositivo
+                </label>
+              </div>
+            </li>
+            <li>
+              <div class="form-check text-muted dispositivo">
+                <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label ms-1" for="flexCheckDefault">
+                  Nome_Dispositivo
+                </label>
+              </div>
+            </li>
+            <li>
+              <div class="form-check text-muted dispositivo">
+                <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label ms-1" for="flexCheckDefault">
+                  Nome_Dispositivo
+                </label>
+              </div>
+            </li>
+            <li>
+              <div class="form-check text-muted dispositivo">
+                <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label ms-1" for="flexCheckDefault">
+                  Nome_Dispositivo
+                </label>
+              </div>
+            </li>
+            <li>
+              <div class="form-check text-muted dispositivo">
+                <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label ms-1" for="flexCheckDefault">
+                  Nome_Dispositivo
+                </label>
+              </div>
+            </li>
+            <li>
+              <div class="form-check text-muted dispositivo">
+                <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label ms-1" for="flexCheckDefault">
+                  Nome_Dispositivo
+                </label>
+              </div>
+            </li>
+            <li class="ms-3 ">
+              <button type="button" class="btn btn-outline-success btn-sm">Adicionar</button>
+            </li>
 
-            <div class="container">
-                <hr>
+            <li class="my-4">
+              <hr class="dropdown-divider">
+            </li>
 
+            <li class="mb-1">
+              <div class="text-muted small fw-bold text-uppercase px-3">
+                PERÍODO
+              </div>
+            </li>
+            <li class="periodo ms-0.5">
+              <div class="input-group input-group-sm mb-3 periodo">
+                <span class="input-group-text" id="basic-addon1">Início</span>
+                <input type="text" class="form-control" placeholder="DD/MM/AA HH:MM" aria-label="" aria-describedby="basic-addon1">
+              </div>
+            </li>
+            <li class="periodo ms-0.5">
+              <div class="input-group input-group-sm mb-3 periodo">
+                <span class="input-group-text" id="basic-addon1">Fim</span>
+                <input type="text" class="form-control" placeholder="DD/MM/AA HH:MM" aria-label="" aria-describedby="basic-addon1">
+              </div>
+            </li>
+            <li class="ms-3">
+              <button type="button" class="btn btn-outline-success btn-sm">Pesquisar</button>
+            </li>
 
-                <h1>Hosts</h1>
-                
-                <a href="#" class="btn btn-primary">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-tags" viewBox="0 0 16 16">
-                        <path
-                            d="M3 2v4.586l7 7L14.586 9l-7-7H3zM2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586V2z" />
-                        <path
-                            d="M5.5 5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM1 7.086a1 1 0 0 0 .293.707L8.75 15.25l-.043.043a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 0 7.586V3a1 1 0 0 1 1-1v5.086z" />
-                    </svg>
-                    Configurar
-                </a>
-                <hr>
-                <% myHosts.forEach(host => { %>
-                    <br>
-                    <div class="card">
-                        <div class="card-body">
-                            <% if (host.alias == null) { %>
-                                <h3>
-                                    <%= host.host %>
-                                </h3>
-                                <%} else { %>
-                                <h3><%= host.alias %></h3>
-                                <% } %>
-                        </div>
-                        <div class="card-footer">
-                            <a href="/config/<%= host.id %>/"><button class="btn btn-primary">Alterar</button></a>
-                        </div>
+            <li class="my-4">
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <div class="text-muted small fw-bold text-uppercase px-3">
+                Exportar
+              </div>
+            </li>
+            <li>
+              <button type="submit" class="btn btn-secondary btn-sm ms-3">.CSV</button>
+            </li>
+          </ul>
+        </nav>
+      
+      </div>
+    </div>
+    <!-- offcanvas menu-->
+
+    <main class="mt-5 pt-3">
+      
+      <div class="container-fluid">
+        <div class="row" >
+          <div class="col-md-12 fw-bold fs-2">Dashboard</div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3">
+            <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+              <div class="card-header bg-dark text-light ">Nome_Dispositivo</div>
+              <div class="card-body leitor-dispositivo">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="fw-light fs-8"> 
+                      HH:MM:SS
                     </div>
-                    <% }) %>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <div class="fw-light fs-8"> 
+                      XX:XX:XX:XX
+                    </div>
+                  </div>
+                </div>    
+                
+                <h6 class="mb-0">Temperatura(°C):</h6>
+                <p class="fw-light fs-3 mb-0">24.5</p>
+                <hr class="separador">
+                <h6 class="mb-0">Umidade(%):</h6>
+                <p class="fw-light fs-3 mb-0">65.2</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+              <div class="card-header bg-dark text-light ">Nome_Dispositivo</div>
+              <div class="card-body leitor-dispositivo">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="fw-light fs-8"> 
+                      HH:MM:SS
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <div class="fw-light fs-8"> 
+                      XX:XX:XX:XX
+                    </div>
+                  </div>
+                </div>    
+                
+                <h6 class="mb-0">Temperatura(°C):</h6>
+                <p class="fw-light fs-3 mb-0">24.5</p>
+                <hr class="separador">
+                <h6 class="mb-0">Umidade(%):</h6>
+                <p class="fw-light fs-3 mb-0">65.2</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+              <div class="card-header bg-dark text-light ">Nome_Dispositivo</div>
+              <div class="card-body leitor-dispositivo">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="fw-light fs-8"> 
+                      HH:MM:SS
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <div class="fw-light fs-8"> 
+                      XX:XX:XX:XX
+                    </div>
+                  </div>
+                </div>    
+                
+                <h6 class="mb-0">Temperatura(°C):</h6>
+                <p class="fw-light fs-3 mb-0">24.5</p>
+                <hr class="separador">
+                <h6 class="mb-0">Umidade(%):</h6>
+                <p class="fw-light fs-3 mb-0">65.2</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+              <div class="card-header bg-dark text-light ">Nome_Dispositivo</div>
+              <div class="card-body leitor-dispositivo">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="fw-light fs-8"> 
+                      HH:MM:SS
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <div class="fw-light fs-8"> 
+                      XX:XX:XX:XX
+                    </div>
+                  </div>
+                </div>    
+                
+                <h6 class="mb-0">Temperatura(°C):</h6>
+                <p class="fw-light fs-3 mb-0">24.5</p>
+                <hr class="separador">
+                <h6 class="mb-0">Umidade(%):</h6>
+                <p class="fw-light fs-3 mb-0">65.2</p>
+              </div>
+            </div>
+          </div>          
+
+     </div>
+     <div class="row">
+        <div class="col-md-12">
+          <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <button class="nav-link active" id="nav-graph-tab" data-bs-toggle="tab" data-bs-target="#nav-graph" type="button" role="tab" aria-controls="nav-graph" aria-selected="true">Gráfico</button>
+              <button class="nav-link" id="nav-analytics-tab" data-bs-toggle="tab" data-bs-target="#nav-analytics" type="button" role="tab" aria-controls="nav-analytics" aria-selected="false">Analítico</button>
+            </div>
+          </nav>
+
+          <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-graph" role="tabpanel" aria-labelledby="nav-graph-tab">
+              <div class="row">
+                <div class="col-md-12">
+                  <canvas id="myChart" height="50"></canvas>
+                  <script>
+                    const myChart = new Chart(
+                      document.getElementById('myChart'),
+                      config
+                    );
+                  </script>
+                </div>
+                </div>
             </div>
 
-            <%- include ('./partials/footer') %>
+            <div class="tab-pane fade" id="nav-analytics" role="tabpanel" aria-labelledby="nav-analytics-tab">
+              ...
+            </div>
+          </div>
+        </div>
+     </div>
+
+    </main>
+
+<%- include ('./partials/footer') %>

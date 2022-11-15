@@ -1,0 +1,50 @@
+:root {
+    --offcanvas-width: 270px;
+    --topNavHeight: 66px;
+}
+
+.offcanvas.offcanvas-start {
+    width: 270px;
+}
+
+
+.dispositivo{
+    display: flex;
+    justify-content: center;
+}
+
+.periodo{
+    display: flex;
+    justify-content: center;
+    width: 85%;
+}
+
+.leitor-dispositivo{
+    background-color: rgb(230, 230, 230);
+    padding-top: 3px;
+}
+
+.separador{
+    margin-bottom: 3px;
+    margin-top: 4px;
+}
+
+
+@media(min-width: 992px) {
+    body{
+        overflow: auto !important;
+    }
+    
+    
+    .offcanvas.offcanvas-start{
+        transform: none;
+        visibility: visible !important;
+        top: var(--topNavHeight);
+        height: calc(100% - var(--topNavHeight));
+    }
+
+    main{
+        margin-left: var(--offcanvas-width);
+    }
+}
+

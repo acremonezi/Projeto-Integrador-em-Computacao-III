@@ -1,15 +1,272 @@
 <%- include ('./partials/header') %>
 
-<%- include ('./partials/navbar') %>
+  <%- include ('./partials/navbar') %>
 
-<div class="container">
+    <!-- offcanvas menu-->
+    <div class=" offcanvas offcanvas-start  bg-dark text-white" data-bs-scroll="true"  data-bs-backdrop="false"   tabindex="-1" id="offcanvasExample"
+      aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-body p-0">
+        <nav class="navbar-dark">
+          <ul class="navbar-nav text ">
+            <li>
+              <div class="text-muted small fw-bold text-uppercase px-3">
+                DISPOSITIVOS
+              </div>
+            </li>
+            <li>
+              <div class="form-check text-muted dispositivo">
+                <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label ms-1" for="flexCheckDefault">
+                  Nome_Dispositivo
+                </label>
+              </div>
+            </li>
+            <li>
+              <div class="form-check text-muted dispositivo">
+                <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label ms-1" for="flexCheckDefault">
+                  Nome_Dispositivo
+                </label>
+              </div>
+            </li>
+            <li>
+              <div class="form-check text-muted dispositivo">
+                <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label ms-1" for="flexCheckDefault">
+                  Nome_Dispositivo
+                </label>
+              </div>
+            </li>
+            <li>
+              <div class="form-check text-muted dispositivo">
+                <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label ms-1" for="flexCheckDefault">
+                  Nome_Dispositivo
+                </label>
+              </div>
+            </li>
+            <li>
+              <div class="form-check text-muted dispositivo">
+                <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label ms-1" for="flexCheckDefault">
+                  Nome_Dispositivo
+                </label>
+              </div>
+            </li>
+            <li>
+              <div class="form-check text-muted dispositivo">
+                <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label ms-1" for="flexCheckDefault">
+                  Nome_Dispositivo
+                </label>
+              </div>
+            </li>
+            <li>
+              <div class="form-check text-muted dispositivo">
+                <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label ms-1" for="flexCheckDefault">
+                  Nome_Dispositivo
+                </label>
+              </div>
+            </li>
+            <li class="ms-3 ">
+              <button type="button" class="btn btn-outline-success btn-sm">Adicionar</button>
+            </li>
 
-<hr>
-<h1>Lorem Ipsum</h1>
-<hr>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a pretium velit, id dapibus turpis. Curabitur erat ante, convallis vel purus in, tincidunt feugiat odio. Maecenas pretium quis lorem sed congue. In imperdiet, elit ac bibendum luctus, massa diam euismod ante, vel varius felis lectus sit amet lorem. Mauris scelerisque, mi ac feugiat rutrum, lectus est bibendum mi, et volutpat mi tortor pulvinar ante. In hac habitasse platea dictumst. Praesent molestie tortor id quam pulvinar pretium quis et ipsum. Phasellus convallis velit pharetra mauris fermentum lacinia. Maecenas at facilisis lorem, et fermentum diam. Suspendisse consectetur felis quis sapien scelerisque, dapibus vestibulum dui congue.</p>
+            <li class="my-4">
+              <hr class="dropdown-divider">
+            </li>
 
-</div>
+            <li class="mb-1">
+              <div class="text-muted small fw-bold text-uppercase px-3">
+                PERÍODO
+              </div>
+            </li>
+            <li class="periodo ms-0.5">
+              <div class="input-group input-group-sm mb-3 periodo">
+                <span class="input-group-text" id="basic-addon1">Início</span>
+                <input type="text" class="form-control" placeholder="DD/MM/AA HH:MM" aria-label="" aria-describedby="basic-addon1">
+              </div>
+            </li>
+            <li class="periodo ms-0.5">
+              <div class="input-group input-group-sm mb-3 periodo">
+                <span class="input-group-text" id="basic-addon1">Fim</span>
+                <input type="text" class="form-control" placeholder="DD/MM/AA HH:MM" aria-label="" aria-describedby="basic-addon1">
+              </div>
+            </li>
+            <li class="ms-3">
+              <button type="button" class="btn btn-outline-success btn-sm">Pesquisar</button>
+            </li>
+
+            <li class="my-4">
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <div class="text-muted small fw-bold text-uppercase px-3">
+                Exportar
+              </div>
+            </li>
+            <li>
+              <button type="submit" class="btn btn-secondary btn-sm ms-3">.CSV</button>
+            </li>
+          </ul>
+        </nav>
+      
+      </div>
+    </div>
+    <!-- offcanvas menu-->
+
+    <main class="mt-5 pt-3">
+      
+      <div class="container-fluid">
+        <div class="row" >
+          <div class="col-md-12 fw-bold fs-2">Dashboard</div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3">
+            <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+              <div class="card-header bg-dark text-light ">Nome_Dispositivo</div>
+              <div class="card-body leitor-dispositivo">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="fw-light fs-8"> 
+                      HH:MM:SS
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <div class="fw-light fs-8"> 
+                      XX:XX:XX:XX
+                    </div>
+                  </div>
+                </div>    
+                
+                <h6 class="mb-0">Temperatura(°C):</h6>
+                <p class="fw-light fs-3 mb-0">24.5</p>
+                <hr class="separador">
+                <h6 class="mb-0">Umidade(%):</h6>
+                <p class="fw-light fs-3 mb-0">65.2</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+              <div class="card-header bg-dark text-light ">Nome_Dispositivo</div>
+              <div class="card-body leitor-dispositivo">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="fw-light fs-8"> 
+                      HH:MM:SS
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <div class="fw-light fs-8"> 
+                      XX:XX:XX:XX
+                    </div>
+                  </div>
+                </div>    
+                
+                <h6 class="mb-0">Temperatura(°C):</h6>
+                <p class="fw-light fs-3 mb-0">24.5</p>
+                <hr class="separador">
+                <h6 class="mb-0">Umidade(%):</h6>
+                <p class="fw-light fs-3 mb-0">65.2</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+              <div class="card-header bg-dark text-light ">Nome_Dispositivo</div>
+              <div class="card-body leitor-dispositivo">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="fw-light fs-8"> 
+                      HH:MM:SS
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <div class="fw-light fs-8"> 
+                      XX:XX:XX:XX
+                    </div>
+                  </div>
+                </div>    
+                
+                <h6 class="mb-0">Temperatura(°C):</h6>
+                <p class="fw-light fs-3 mb-0">24.5</p>
+                <hr class="separador">
+                <h6 class="mb-0">Umidade(%):</h6>
+                <p class="fw-light fs-3 mb-0">65.2</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="card text-dark bg-light mb-3" style="max-width: 18rem;">
+              <div class="card-header bg-dark text-light ">Nome_Dispositivo</div>
+              <div class="card-body leitor-dispositivo">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="fw-light fs-8"> 
+                      HH:MM:SS
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-6">
+                    <div class="fw-light fs-8"> 
+                      XX:XX:XX:XX
+                    </div>
+                  </div>
+                </div>    
+                
+                <h6 class="mb-0">Temperatura(°C):</h6>
+                <p class="fw-light fs-3 mb-0">24.5</p>
+                <hr class="separador">
+                <h6 class="mb-0">Umidade(%):</h6>
+                <p class="fw-light fs-3 mb-0">65.2</p>
+              </div>
+            </div>
+          </div>          
+
+     </div>
+     <div class="row">
+        <div class="col-md-12">
+          <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <button class="nav-link active" id="nav-graph-tab" data-bs-toggle="tab" data-bs-target="#nav-graph" type="button" role="tab" aria-controls="nav-graph" aria-selected="true">Gráfico</button>
+              <button class="nav-link" id="nav-analytics-tab" data-bs-toggle="tab" data-bs-target="#nav-analytics" type="button" role="tab" aria-controls="nav-analytics" aria-selected="false">Analítico</button>
+            </div>
+          </nav>
+
+          <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-graph" role="tabpanel" aria-labelledby="nav-graph-tab">
+              <div class="row">
+                <div class="col-md-12">
+                  <canvas id="myChart" height="50"></canvas>
+                  <script>
+                    const myChart = new Chart(
+                      document.getElementById('myChart'),
+                      config
+                    );
+                  </script>
+                </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="nav-analytics" role="tabpanel" aria-labelledby="nav-analytics-tab">
+              ...
+            </div>
+          </div>
+        </div>
+     </div>
+
+    </main>
+
 
 
 <%- include ('./partials/footer') %>

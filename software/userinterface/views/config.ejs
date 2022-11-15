@@ -1,0 +1,22 @@
+<%- include ('./partials/header') %>
+
+<%- include ('./partials/navbar') %>
+
+<div class="container">
+    <div class="card">
+        <h3>Host:</h3>
+    </div>
+    <div class="card-body">
+        <p><%= oneHost.host %></p>
+        <form method="post" action="/saveconfig">
+            <p>
+                <label>Alias:</label><textarea placeholder="Digite o alias" class="form-control" name="hostAlias"><%= oneHost.alias %></textarea><br>
+                <input type="hidden" name="hostId" value="<%= oneHost.id %>">
+            </p>
+            
+            <button class="btn btn-primary">Salvar</button>
+        </form>
+    </div>
+</div>
+
+<%- include ('./partials/footer') %>

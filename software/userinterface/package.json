@@ -26,6 +26,8 @@
   "dependencies": {
     "@influxdata/influxdb-client": "^1.32.0",
     "@influxdata/influxdb-client-apis": "^1.32.0",
+    "body-parser": "^1.20.1",
+    "bootstrap-icons": "^1.10.1",
     "chart.js": "^3.9.1",
     "ejs": "^3.1.8",
     "express": "^4.18.2",

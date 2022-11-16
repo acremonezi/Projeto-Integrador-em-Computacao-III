@@ -1,15 +1,8 @@
 {
 	"folders": [
 		{
-			"name": "Teste",
-			"path": "../../PlatformIO/Projects/Teste"
+			"path": "."
 		}
 	],
-	"settings": {
-		"files.associations": {
-			"*.ejs": "html",
-			"random": "cpp",
-			"string_view": "cpp"
-		}
-	}
+	"settings": {}
 }

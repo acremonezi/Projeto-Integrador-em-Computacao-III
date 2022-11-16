@@ -49,16 +49,23 @@ app.get('/', (req, res) => {
 // open host config, to set alias
 app.get('/config/:id', (req, res) => {
     var id = req.params.id;
-    
-    Hosts.findOne({
-        where: {id: id}
-    }).then(oneHost => {
-        if (oneHost != undefined){
-            res.render('config', {'oneHost': oneHost});
-        }else{
-            res.redirect('/');
-        }
+
+     // find all hosts in database and put ir order to view in index
+     Hosts.findAll({raw: true, order: [
+        ['alias', 'ASC']
+    ]}).then(myHostsDB => {
+        Hosts.findOne({
+            where: {id: id}
+        }).then(oneHost => {
+            if (oneHost != undefined){
+                res.render('config', {'oneHost': oneHost, 'myHosts': myHostsDB});
+            }else{
+                res.redirect('/');
+            }
+        });
     });
+
+    
 });
 
 // set alias for individual host

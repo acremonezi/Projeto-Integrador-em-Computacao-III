@@ -9,14 +9,22 @@ aria-labelledby="offcanvasExampleLabel">
           DISPOSITIVOS
         </div>
       </li>
+      <div class="container">
       <% myHosts.forEach(host => { %>
       <% if (host.alias == null) { %>
-        <li>
-          <div class="form-check text-muted dispositivo">
-            <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label ms-1 text-start" for="flexCheckDefault">
-              <%= host.host %>
-            </label>&nbsp;
+        <div class="row">
+          <div class="col-10">
+            <li>
+              <div class="form-check text-muted dispositivo">
+                
+                <label class="form-check-label ms-1 text-center" for="flexCheckDefault">
+                  <%= host.host %>
+                </label>&nbsp;
+                
+              </div>
+            </li>
+          </div>
+          <div class="col-2">
             <a href="/config/<%= host.id %>/" >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
                 <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
@@ -24,14 +32,22 @@ aria-labelledby="offcanvasExampleLabel">
               </svg>
             </a>
           </div>
-        </li>
+        </div>
+
         <%} else { %>
-          <li>
-            <div class="form-check text-muted dispositivo">
-              <input class="form-check-input " type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label ms-1 text-start" for="flexCheckDefault">
-                <%= host.alias %>
-              </label>&nbsp;
+          <div class="row">
+            <div class="col-10">
+              <li>
+                <div class="form-check text-muted dispositivo">
+                  
+                  <label class="form-check-label ms-1 text-center" for="flexCheckDefault">
+                    <%= host.alias %>
+                  </label>&nbsp;
+
+                </div>
+              </li>
+            </div>
+            <div class="col-2">
               <a href="/config/<%= host.id %>/" >
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
                   <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
@@ -39,11 +55,12 @@ aria-labelledby="offcanvasExampleLabel">
                 </svg>
               </a>
             </div>
-          </li>
+          </div>
+
         <% } %>
         <% }) %>
       
-
+      </div>
 
       <li class="my-4">
         <hr class="dropdown-divider">

@@ -2,21 +2,28 @@
 
 <%- include ('./partials/navbar') %>
 
-<div class="container">
-    <div class="card">
-        <h3>Host:</h3>
-    </div>
-    <div class="card-body">
-        <p><%= oneHost.host %></p>
-        <form method="post" action="/saveconfig">
-            <p>
-                <label>Alias:</label><textarea placeholder="Digite o alias" class="form-control" name="hostAlias"><%= oneHost.alias %></textarea><br>
-                <input type="hidden" name="hostId" value="<%= oneHost.id %>">
-            </p>
-            
-            <button class="btn btn-primary">Salvar</button>
-        </form>
-    </div>
-</div>
+<%- include ('./partials/left') %>
+
+<main class="mt-5 pt-3">
+      
+    <div class="container-fluid">
+      <div class="row" >
+        <div class="col-md-12 fw-bold fs-2">Host</div>
+        <div class="card-body">
+            <p><%= oneHost.host %></p>
+            <form method="post" action="/saveconfig">
+                <p>
+                    <label>Apelido:</label><textarea placeholder="Digite o apelido" class="form-control" name="hostAlias"><%= oneHost.alias %></textarea><br>
+                    <input type="hidden" name="hostId" value="<%= oneHost.id %>">
+                </p>
+                
+                <button class="btn btn-dark">Salvar</button>
+            </form>
+        </div>
+      </div>
+      </div>
+</main>
+
+
 
 <%- include ('./partials/footer') %>

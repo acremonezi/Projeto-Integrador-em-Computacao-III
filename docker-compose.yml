@@ -1,13 +1,12 @@
-version: '3.7'
+version: "3.7"
 
 networks:
   frontend:
   backend:
 
 services:
-
-# -----------------------------------------------------------------
-# Reverse Proxy
+  # -----------------------------------------------------------------
+  # Reverse Proxy
 
   traefik:
     image: traefik:v2.6
@@ -21,7 +20,7 @@ services:
     ports:
       - 80:80
       - 443:443
-      
+
     volumes:
       # Traefik can listen to the Docker events
       - /var/run/docker.sock:/var/run/docker.sock:ro
@@ -29,17 +28,16 @@ services:
       # Define Time
       - /etc/localtime:/etc/localtime:ro
 
-       # Configuration      
+        # Configuration
       - ./devops/traefik/traefik.toml:/etc/traefik/traefik.toml:ro
       - ./devops/traefik/traefik_dynamic.toml:/etc/traefik/traefik_dynamic.toml:ro
 
-      # Data Storage 
+      # Data Storage
       - ./data/traefik/acme.json:/acme.json
 
-
-# -----------------------------------------------------------------
-# Mosquitto
-# mqtt.bee.espertamente.com.br
+  # -----------------------------------------------------------------
+  # Mosquitto
+  # mqtt.bee.espertamente.com.br
 
   mosquitto:
     image: eclipse-mosquitto:latest
@@ -63,10 +61,9 @@ services:
       # Log Storage
       - ./data/mosquitto/log:/mosquitto/log
 
-
-# -----------------------------------------------------------------
-# InfluxDB
-# influxdb.bee.espertamente.com.br
+  # -----------------------------------------------------------------
+  # InfluxDB
+  # influxdb.bee.espertamente.com.br
 
   influxdb:
     image: influxdb:latest
@@ -79,8 +76,8 @@ services:
 
     ports:
       - 8086:8086
-    
-    environment: 
+
+    environment:
       - DOCKER_INFLUXDB_INIT_MODE=setup
       - DOCKER_INFLUXDB_INIT_USERNAME=espertamente
       - DOCKER_INFLUXDB_INIT_PASSWORD=Iy03yxMzFrahYBv2TBIn
@@ -91,7 +88,7 @@ services:
     volumes:
       # Configuration
       # - ./devops/influxdb:/etc/influxdb2
-      # Data Storage 
+      # Data Storage
       - ./data/influxdb:/var/lib/influxdb2
 
     labels:
@@ -101,13 +98,12 @@ services:
       - "traefik.http.routers.influxdb.entrypoints=websecure"
 
       - "traefik.http.services.influxdb.loadbalancer.server.port=8086"
-      
+
       - "traefik.http.routers.influxdb.service=influxdb"
       - "traefik.http.routers.influxdb.tls.certresolver=letsencrypt"
 
-
-# -----------------------------------------------------------------
-# Telegraf
+  # -----------------------------------------------------------------
+  # Telegraf
 
   telegraf:
     image: telegraf:latest
@@ -119,7 +115,7 @@ services:
 
     ports:
       - 8125:8125
-    
+
     volumes:
       # Configuration
       - ./devops/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
@@ -130,7 +126,7 @@ services:
     links:
       - influxdb
 
-    environment: 
+    environment:
       - DOCKER_INFLUXDB_INIT_ORG=espertamente
       - DOCKER_INFLUXDB_INIT_BUCKET=bee
       - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=WCHiXnonzowflQRsO7QM
@@ -138,61 +134,9 @@ services:
     labels:
       - "traefik.enable=false"
 
-# -----------------------------------------------------------------
-# Grafana
-# grafana.bee.espertamente.com.br
-
-  grafana:
-    image: grafana/grafana:latest
-    container_name: grafana
-    restart: unless-stopped
-
-    networks:
-      - frontend
-      - backend
-
-    user: root:root
-    
-    ports:
-      - 3000:3000
-
-    depends_on:
-      - influxdb
-
-    volumes:
-      # Define Time
-      #- /etc/localtime:/etc/localtime:ro
-
-      # Configuration
-      # - ./devops/grafana:/etc/grafana
-
-      # Data Storage
-      - ./data/grafana:/var/lib/grafana
-
-      # Log Storage
-      # - ./logs/grafana/:/var/log/grafana
-      
-    environment:
-      - GF_SECURITY_ADMIN_USER=espertamente
-      - GF_SECURITY_ADMIN_PASSWORD=MuitoObrigado!!!MuitoObrigado!!!MuitoObrigado!!!
-      - GF_USERS_ALLOW_SIGN_UP=false
-      # - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource
-
-    labels:
-      - "traefik.enable=true"
-
-      - "traefik.http.routers.grafana.rule=Host(`grafana.bee.espertamente.com.br`)"
-      - "traefik.http.routers.grafana.entrypoints=websecure"
-
-      - "traefik.http.services.grafana.loadbalancer.server.port=3000"
-      
-      - "traefik.http.routers.grafana.service=grafana"
-      - "traefik.http.routers.grafana.tls.certresolver=letsencrypt"
-
-
-# -----------------------------------------------------------------
-# NodeRED
-# nodered.bee.espertamente.com.br
+  # -----------------------------------------------------------------
+  # NodeRED
+  # nodered.bee.espertamente.com.br
 
   nodered:
     image: nodered/node-red:latest
@@ -204,12 +148,12 @@ services:
       - backend
 
     user: root:root
-    
+
     environment:
       - TZ=America/Sao_Paulo
       # - NODE_RED_ENABLE_PROJECTS=true
       # - NODE_RED_CREDENTIAL_SECRET=$apr1$GCd5TkKn$PZvSTWH7UkvkszmYSaNUI/
-    
+
     volumes:
       # Define Time
       - /etc/localtime:/etc/localtime:ro
@@ -228,6 +172,44 @@ services:
       - "traefik.http.routers.nodered.entrypoints=websecure"
 
       - "traefik.http.services.nodered.loadbalancer.server.port=1880"
-      
+
+      - "traefik.http.routers.nodered.service=nodered"
+      - "traefik.http.routers.nodered.tls.certresolver=letsencrypt"
+
+  # -----------------------------------------------------------------
+  # Node
+
+  node:
+    image: node:19-bullseye
+    restart: always
+    container_name: node
+
+    user: "node"
+    working_dir: /home/node/app
+
+    networks:
+      - frontend
+      - backend
+
+    environment:
+      - NODE_ENV=production
+
+    volumes:
+      - ./software/userinterface:/home/node/app
+    ports:
+      - "8080:8080"
+
+    # this is related to the line 7 of package.json
+    # "start": "node ./index.js"
+    command: "npm start"
+
+    labels:
+      - "traefik.enable=true"
+
+      - "traefik.http.routers.nodered.rule=Host(`nodered.bee.espertamente.com.br`)"
+      - "traefik.http.routers.nodered.entrypoints=websecure"
+
+      - "traefik.http.services.nodered.loadbalancer.server.port=8080"
+
       - "traefik.http.routers.nodered.service=nodered"
       - "traefik.http.routers.nodered.tls.certresolver=letsencrypt"

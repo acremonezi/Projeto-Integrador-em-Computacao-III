@@ -191,9 +191,6 @@ services:
       - frontend
       - backend
 
-    environment:
-      - NODE_ENV=production
-
     volumes:
       - ./software/userinterface:/home/node/app
     ports:
@@ -201,7 +198,7 @@ services:
 
     # this is related to the line 7 of package.json
     # "start": "node ./index.js"
-    command: "npm start"
+    command: "npm install start"
 
     labels:
       - "traefik.enable=true"

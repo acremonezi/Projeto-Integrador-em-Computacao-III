@@ -180,7 +180,7 @@ services:
   # Node
 
   node:
-    image: node:19-bullseye
+    image: node:18.12-bullseye
     restart: always
     container_name: node
 

@@ -199,6 +199,7 @@ services:
     ports:
       - "8080:8080"
 
+    # this is related to the line 7 of package.json
     command: "npm start"
 
     labels:

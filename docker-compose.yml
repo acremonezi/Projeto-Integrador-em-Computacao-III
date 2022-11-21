@@ -206,7 +206,7 @@ services:
     labels:
       - "traefik.enable=true"
 
-      - "traefik.http.routers.nodered.rule=Host(`nodered.bee.espertamente.com.br`)"
+      - "traefik.http.routers.nodered.rule=Host(`bee.espertamente.com.br`)"
       - "traefik.http.routers.nodered.entrypoints=websecure"
 
       - "traefik.http.services.nodered.loadbalancer.server.port=8080"

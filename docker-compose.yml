@@ -179,10 +179,13 @@ services:
   # -----------------------------------------------------------------
   # Node
 
-  node:
-    image: node:18.12-bullseye
+  node_custom:
+    image: node_custom:1.0.0
+    container_name: node_custom
+    build:
+      context: .
+      dockerfile: ./devops/node/Dockerfile
     restart: always
-    container_name: node
 
     user: "node"
     working_dir: /home/node/app
@@ -191,6 +194,9 @@ services:
       - frontend
       - backend
 
+    environment:
+      - NODE_ENV=production
+
     volumes:
       - ./software/userinterface:/home/node/app
     ports:
@@ -198,7 +204,7 @@ services:
 
     # this is related to the line 7 of package.json
     # "start": "node ./index.js"
-    command: "npm install start"
+    command: "npm start"
 
     labels:
       - "traefik.enable=true"

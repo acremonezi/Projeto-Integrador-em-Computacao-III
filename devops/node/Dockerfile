@@ -1,7 +1,7 @@
 FROM node:18.12-bullseye as base
 
 WORKDIR /src
-COPY package*.json /
+COPY ../../software/userinterface/package*.json /
 EXPOSE 8080
 
 FROM base as production

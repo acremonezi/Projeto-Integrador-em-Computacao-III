@@ -200,6 +200,7 @@ services:
       - "8080:8080"
 
     # this is related to the line 7 of package.json
+    # "start": "node ./index.js"
     command: "npm start"
 
     labels:

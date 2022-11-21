@@ -184,7 +184,7 @@ services:
     container_name: node_custom
     build:
       context: .
-      dockerfile: ./devops/node/Dockerfile
+      dockerfile: ./devops/node_custom/Dockerfile
     restart: always
 
     user: "node"

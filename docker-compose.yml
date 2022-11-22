@@ -198,8 +198,8 @@ services:
       - NODE_ENV=production
 
     volumes:
-      #- ./software/userinterface:/home/node/app
-      - ./software/userinterface:/src
+      - ./software/userinterface:/home/node/app
+      # - ./software/userinterface:/src
     ports:
       - "8080:8080"
 

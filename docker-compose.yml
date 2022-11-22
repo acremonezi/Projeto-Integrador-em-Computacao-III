@@ -197,8 +197,8 @@ services:
     volumes:
       - ./software/userinterface:/home/node/app
 
-    ports:
-      - "8080:8080"
+    #ports:
+    #  - "8080:8080"
 
     # this is related to the line 7 of package.json
     command: "npm start"
@@ -206,10 +206,10 @@ services:
     labels:
       - "traefik.enable=true"
 
-      - "traefik.http.routers.nodered.rule=Host(`bee.espertamente.com.br`)"
-      - "traefik.http.routers.nodered.entrypoints=websecure"
+      - "traefik.http.routers.node_custom.rule=Host(`bee.espertamente.com.br`)"
+      - "traefik.http.routers.node_custom.entrypoints=websecure"
 
-      - "traefik.http.services.nodered.loadbalancer.server.port=8080"
+      - "traefik.http.services.node_custom.loadbalancer.server.port=8080"
 
-      - "traefik.http.routers.nodered.service=nodered"
-      - "traefik.http.routers.nodered.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.node_custom.service=node_custom"
+      - "traefik.http.routers.node_custom.tls.certresolver=letsencrypt"

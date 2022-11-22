@@ -188,14 +188,14 @@ services:
     restart: always
 
     user: "node"
-    #working_dir: /home/node/app
+    working_dir: /home/node/app
 
     networks:
       - frontend
       - backend
 
-    volumes:
-      - ./software/userinterface:/app
+    #volumes:
+    #  - ./software/userinterface:/app
 
     ports:
       - "8080:8080"

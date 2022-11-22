@@ -199,13 +199,12 @@ services:
 
     volumes:
       - ./software/userinterface:/home/node/app
-      #- ./software/userinterface:/app
+
     ports:
       - "8080:8080"
 
     # this is related to the line 7 of package.json
-    # "start": "node ./index.js"
-    # command: "npm start"
+    command: "npm start"
 
     labels:
       - "traefik.enable=true"

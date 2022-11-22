@@ -1,8 +1,5 @@
 FROM node:18.12-bullseye
 
-WORKDIR /app
-
-COPY ./software/userinterface/package.json /
-COPY ./software/userinterface/package-lock.json /
+WORKDIR /home/node/app
 
 RUN npm install

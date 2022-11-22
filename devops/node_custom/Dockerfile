@@ -1,12 +1,9 @@
-FROM node:18.12-bullseye as base
+FROM node:18.12-bullseye
 
 WORKDIR /src
 COPY ./software/userinterface/package.json /
-EXPOSE 8080
+COPY ./software/userinterface/package-lock.json /
 
-FROM base as production
-ENV NODE_ENV=production
 RUN npm install
 RUN npm ci
 COPY . /
-CMD ["node", "bin/www"]

@@ -1,5 +1,5 @@
 (async () => {
-    const database = require('./database/database');
+    const database = require('./database/sqlite3db');
     const Hosts = require('./database/Hosts');
 
     try {
@@ -14,11 +14,10 @@
 
 const express = require('express');
 const app = express();
-const client = require('./database/database');
 const queries = require('./database/queries');
 const Hosts = require('./database/Hosts');
-const Host = require('./database/Hosts');
 const bodyParser = require('body-parser');
+
 // use ejs how view engine
 app.set('view engine', 'ejs');
 
@@ -73,7 +72,6 @@ app.post('/saveconfig', (req, res) => {
     var hostAlias = req.body.hostAlias;
     var hostId = req.body.hostId;
 
-    console.log('chegou');
     console.log(hostAlias);
     console.log(hostId);
 

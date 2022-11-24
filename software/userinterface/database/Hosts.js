@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize')
-const database = require('./database')
+const database = require('./sqlite3db')
 
 const Host = database.sequelize.define('Host', {
     host: {

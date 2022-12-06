@@ -7,26 +7,69 @@
 <div class="container">
     <br><br><br><br>
     <h1>Device ID: <%= id %></h1>
+    <hr>
+  </div>
+    <div class="container">
+      <div class="row justify-content-start">
+        <div class="col-6">
 
+          <h1>Humidity</h1>
     <table class="table">
         <thead>
           <tr>
             <th scope="col">Date</th>
             <th scope="col">Humidity (%)</th>
-            <th scope="col">Temperature (°C)</th>
           </tr>
         </thead>
         <tbody>
-          <% for (var i =0; i <= dateHumidity.length;  i++ ) { %>
-            <tr>
-            <th scope="row"><%= dateHumidity[i] %></th>
-            <td><%= listHumidity[i] %></td>
-            <td><%= listTemperature[i] %></td>
+          <% dataHumidity.forEach(row => { %>
+          <tr>
+            <% row.forEach(element => { %>
+            <td>
+              <%= element %>
+            </td>
+            <% }) %>
           </tr>
-          <% } %>
+          <% }) %>
         </tbody>
       </table>
-</div>
+
+        </div>
+        <div class="col-6">
+
+          <h1>Temperature:</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Temperature (%)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% dataTemperature.forEach(row => { %>
+        <tr>
+          <% row.forEach(element => { %>
+          <td>
+            <%= element %>
+          </td>
+          <% }) %>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+  
+
+    
+      
+
 
 
 <%- include ('./partials/footer') %>

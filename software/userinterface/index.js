@@ -18,6 +18,9 @@ const queries = require('./database/queries');
 const Hosts = require('./database/Hosts');
 const bodyParser = require('body-parser');
 
+// Controller
+const devicesController = require('./devices/DevicesController');
+
 // use ejs how view engine
 app.set('view engine', 'ejs');
 
@@ -30,6 +33,9 @@ app.use(bodyParser.json());
 
 
 // Routes
+
+//use
+app.use('/', devicesController);
 
 // main page
 app.get('/', (req, res) => {

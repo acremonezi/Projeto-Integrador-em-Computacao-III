@@ -1,0 +1,32 @@
+<%- include ('./partials/header') %>
+
+<%- include ('./partials/navbar') %>
+
+<%- include ('./partials/left') %>
+
+<div class="container">
+    <br><br><br><br>
+    <h1>Device ID: <%= id %></h1>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Humidity (%)</th>
+            <th scope="col">Temperature (°C)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for (var i =0; i <= dateHumidity.length;  i++ ) { %>
+            <tr>
+            <th scope="row"><%= dateHumidity[i] %></th>
+            <td><%= listHumidity[i] %></td>
+            <td><%= listTemperature[i] %></td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+</div>
+
+
+<%- include ('./partials/footer') %>

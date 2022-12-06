@@ -1,5 +1,6 @@
 <!-- offcanvas menu-->
-<div class=" offcanvas offcanvas-start  bg-dark text-white" data-bs-scroll="true"  data-bs-backdrop="false"   tabindex="-1" id="offcanvasExample"
+<div class="container-fluid">
+  <div class=" offcanvas offcanvas-start  bg-dark text-white" data-bs-scroll="true"  data-bs-backdrop="false"   tabindex="-1" id="offcanvasExample"
 aria-labelledby="offcanvasExampleLabel">
 <div class="offcanvas-body p-0">
   <nav class="navbar-dark">
@@ -16,10 +17,12 @@ aria-labelledby="offcanvasExampleLabel">
           <div class="col-10">
             <li>
               <div class="form-check text-muted dispositivo">
+                <a href="/device/<%= host.id %>">
+                  <label class="form-check-label ms-1 text-center" for="flexCheckDefault">
+                    <%= host.host %>
+                  </label>
+                </a>
                 
-                <label class="form-check-label ms-1 text-center" for="flexCheckDefault">
-                  <%= host.host %>
-                </label>&nbsp;
                 
               </div>
             </li>
@@ -39,10 +42,12 @@ aria-labelledby="offcanvasExampleLabel">
             <div class="col-10">
               <li>
                 <div class="form-check text-muted dispositivo">
+                  <a href="/device/<%= host.id %>">
+                    <label class="form-check-label ms-1 text-center" for="flexCheckDefault">
+                      <%= host.alias %>
+                    </label>
+                  </a>
                   
-                  <label class="form-check-label ms-1 text-center" for="flexCheckDefault">
-                    <%= host.alias %>
-                  </label>&nbsp;
 
                 </div>
               </li>
@@ -105,3 +110,4 @@ aria-labelledby="offcanvasExampleLabel">
 </div>
 </div>
 <!-- offcanvas menu-->
+</div>

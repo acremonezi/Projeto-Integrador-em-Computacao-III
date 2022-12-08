@@ -11,18 +11,19 @@
   </div>
     <div class="container">
       <div class="row justify-content-start">
-        <div class="col-6">
+        <div class="col-12">
 
-          <h1>Humidity</h1>
+          <h1>Data</h1>
     <table class="table">
         <thead>
           <tr>
             <th scope="col">Date</th>
             <th scope="col">Humidity (%)</th>
+            <th scope="col">Temperature (ºC)</th>
           </tr>
         </thead>
         <tbody>
-          <% dataHumidity.forEach(row => { %>
+          <% dataTable.forEach(row => { %>
           <tr>
             <% row.forEach(element => { %>
             <td>
@@ -35,30 +36,7 @@
       </table>
 
         </div>
-        <div class="col-6">
-
-          <h1>Temperature:</h1>
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Date</th>
-          <th scope="col">Temperature (%)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% dataTemperature.forEach(row => { %>
-        <tr>
-          <% row.forEach(element => { %>
-          <td>
-            <%= element %>
-          </td>
-          <% }) %>
-        </tr>
-        <% }) %>
-      </tbody>
-    </table>
-
-        </div>
+        
       </div>
     </div>
 

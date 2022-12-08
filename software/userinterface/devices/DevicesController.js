@@ -11,14 +11,14 @@ const Hosts = require('../database/Hosts');
 router.get('/device/:id', (req, res) => {
     var id = req.params.id;
 
-    queries.lastMeasure(id, (dataHumidity, dataTemperature) => {
+    queries.lastMeasure(id, (dataTable) => {
         queries.allHosts(() => {
             // find all hosts in database and put ir order to view in index
             Hosts.findAll({raw: true, order: [
                 ['alias', 'ASC']
             ]}).then(myHostsDB => {
                 res.render('device', {
-                    'myHosts': myHostsDB, id, dataHumidity, dataTemperature});
+                    'myHosts': myHostsDB, id, dataTable});
             });
         });
     });

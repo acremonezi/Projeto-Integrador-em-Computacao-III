@@ -18,13 +18,13 @@ Análise de dados; IoT.
 <b>Data:</b> 2o Semestre, 2022.
 
 ## O Projeto Escolhido
-Software para acompanhamento de....
+Software para acompanhamento de humidade e temperaturas de ambientes, realizado desde a extração e tratamento dos dados assim como sua apresentação.
 
 ### Dor:
 Como medir ...
 
 ### Solução:
-Criar um software que permita....
+Criar um software que permita medir, armazenar e apresentar os dados de temperatura e humidade extraidos 
 
 ### Funcionalidades:
 1. Criar conta...
